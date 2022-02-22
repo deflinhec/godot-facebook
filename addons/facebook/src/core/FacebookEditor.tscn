@@ -1,0 +1,189 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://addons/facebook/src/core/components/Downloads.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/facebook/src/core/components/Configuration.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/facebook/assets/android.png" type="Texture" id=4]
+[ext_resource path="res://addons/facebook/src/core/FacebookEditor.gd" type="Script" id=10]
+[ext_resource path="res://addons/facebook/assets/icon-76.png" type="Texture" id=11]
+[ext_resource path="res://addons/facebook/assets/ios.png" type="Texture" id=12]
+[ext_resource path="res://addons/facebook/assets/fonts/arial.ttf" type="DynamicFontData" id=13]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.839216, 0.0352941, 0.0352941, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+use_filter = true
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+use_filter = true
+font_data = ExtResource( 13 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 0.772549, 0, 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 13 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.172549, 0.568627, 0.992157, 1 )
+
+[node name="FacebookEditor" type="Control"]
+pause_mode = 2
+anchor_left = -0.002
+anchor_right = 1.502
+anchor_bottom = 0.731444
+margin_left = 1.0
+margin_right = -6.10352e-05
+margin_bottom = -8.30005
+rect_clip_content = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="TopPanel" type="Panel" parent="."]
+anchor_right = 1.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 35 )
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="Label" parent="TopPanel"]
+anchor_right = 1.0
+margin_right = -401.4
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 2 )
+text = "Facebook Editor"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icons" type="Control" parent="TopPanel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -395.4
+margin_right = 0.600037
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AndroidButton" type="TextureButton" parent="TopPanel/Icons"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -123.648
+margin_right = -83.648
+margin_bottom = 40.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="iOSButton" type="TextureButton" parent="TopPanel/Icons"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -82.6479
+margin_right = -42.6479
+margin_bottom = 40.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FacebookButton" type="TextureButton" parent="TopPanel/Icons"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.6479
+margin_right = -0.647949
+margin_bottom = 40.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MiddlePanel" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 40.0
+margin_right = 6.10352e-05
+margin_bottom = -34.9996
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Configuration" parent="MiddlePanel" instance=ExtResource( 2 )]
+
+[node name="Downloads" parent="MiddlePanel" instance=ExtResource( 1 )]
+visible = false
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="BottomPanel" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -35.0
+rect_min_size = Vector2( 0, 35 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="SupportVersion" type="RichTextLabel" parent="BottomPanel"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -35.0
+margin_right = -158.0
+custom_fonts/normal_font = SubResource( 4 )
+custom_styles/normal = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[rainbow sat=10]iOS[/rainbow][color=black]:v0.1.0[/color] [rainbow sat=10]Android[/rainbow][color=black]:v1.0.0[/color]"
+text = "iOS:v0.1.0 Android:v1.0.0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentVersion" type="Label" parent="BottomPanel"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -158.0
+margin_top = -35.0
+rect_min_size = Vector2( 0, 35 )
+custom_fonts/font = SubResource( 6 )
+custom_styles/normal = SubResource( 5 )
+text = "Version: 1.2.4"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="TopPanel/Icons/AndroidButton" to="." method="_on_AndroidButton_pressed"]
+[connection signal="pressed" from="TopPanel/Icons/iOSButton" to="." method="_on_iOSButton_pressed"]
+[connection signal="pressed" from="TopPanel/Icons/FacebookButton" to="." method="_on_FacebookButton_pressed"]

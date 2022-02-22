@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/facebook/src/core/components/Configuration.gd" type="Script" id=1]
+
+[node name="Configuration" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enabled" type="CheckBox" parent="."]
+margin_right = 1128.0
+margin_bottom = 24.0
+text = "Enabled"
+
+[node name="AdvertiserTracking" type="CheckBox" parent="."]
+margin_top = 28.0
+margin_right = 1128.0
+margin_bottom = 52.0
+text = "Advertiser Tracking (iOS Only)"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_top = 56.0
+margin_right = 1128.0
+margin_bottom = 80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AppIdTitle" type="Label" parent="HBoxContainer"]
+margin_top = 5.0
+margin_right = 42.0
+margin_bottom = 19.0
+text = "AppId:"
+
+[node name="AppIdText" type="LineEdit" parent="HBoxContainer"]
+margin_left = 46.0
+margin_right = 302.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 256, 20 )
+rect_clip_content = true
+placeholder_text = "Facebook App Id"
+placeholder_alpha = 0.3
+caret_blink = true
+
+[connection signal="toggled" from="Enabled" to="." method="_on_Enabled_toggled"]
+[connection signal="toggled" from="AdvertiserTracking" to="." method="_on_AdvertiseTracking_toggled"]
+[connection signal="text_changed" from="HBoxContainer/AppIdText" to="." method="_on_AppIdText_text_changed"]
